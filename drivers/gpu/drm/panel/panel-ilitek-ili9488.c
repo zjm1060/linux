@@ -113,7 +113,7 @@ static int ili9488_disable(struct drm_panel *panel)
 	if (!ctx->enabled)
 		return 0; /* This is not an issue so we return 0 here */
 
-	backlight_disable(ctx->bl_dev);
+	// backlight_disable(ctx->bl_dev);
 
 	ctx->enabled = false;
 
@@ -207,7 +207,7 @@ static int ili9488_enable(struct drm_panel *panel)
 	if (ctx->enabled)
 		return 0;
 
-	backlight_enable(ctx->bl_dev);
+	// backlight_enable(ctx->bl_dev);
 
 	ctx->enabled = true;
 
@@ -299,7 +299,7 @@ static int ili9488_probe(struct mipi_dsi_device *dsi)
 	if (ret < 0) {
 		dev_err(dev, "mipi_dsi_attach failed. Is host ready?\n");
 		drm_panel_remove(&ctx->panel);
-		backlight_device_unregister(ctx->bl_dev);
+		// backlight_device_unregister(ctx->bl_dev);
 		return ret;
 	}
 
